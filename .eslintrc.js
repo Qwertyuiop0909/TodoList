@@ -27,5 +27,6 @@ module.exports = {
     'import/no-cycle': 0,
     'linebreak-style': 0,
     'import/no-extraneous-dependencies': 0,
+    'import/prefer-default-export': 'off',
   },
 }

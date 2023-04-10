@@ -1,20 +1,18 @@
 import { useState } from 'react'
-import { useTodoHelpersContext } from '../ContextProvider/ContextProvider'
+import { useDispatch } from 'react-redux'
+import { addTodoAC } from '../../Redux/actionCreators/todosAC'
 
 function Form() {
   const [input, setInput] = useState('')
-  const { addNewTodo } = useTodoHelpersContext()
+  // const { addNewTodo } = useTodoHelpersContext()
+  const dispatch = useDispatch()
   return (
     <form onSubmit={(e) => {
       e.preventDefault()
-      console.log(e)
-      addNewTodo(e.target['0'].value)
+      dispatch(addTodoAC(input))
     }}
     >
       <div className="input-group mt-3 mb-2">
-        <span className="input-group-text" id="inputGroup-sizing-default">
-          <i className="fa-solid fa-magnifying-glass" />
-        </span>
         <input
           value={input}
           type="text"
